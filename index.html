@@ -1,0 +1,15 @@
+<html>
+<h1>Tap the button</h1>
+<body>
+<button onclick="func()"> Number of Clicks </button>
+<p id="myText"> 0 </p>
+
+<script>
+var clicks = 0; 
+function func() { 
+   ++clicks;
+   document.getElementById("myText").innerHTML = clicks;
+}
+</script>
+</body>
+</html>
