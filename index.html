@@ -50,6 +50,8 @@ emailjs.send('gmail', 'template_pOSiRNqM', templateParams)
     }, function(error) {
        console.log('FAILED...', error);
     });
+	document.getElementById('buy').disabled = true;
+	alert("Pre-order suceeded!");
 }
 </script>
 </html>
