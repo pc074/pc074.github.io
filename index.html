@@ -1,16 +1,55 @@
+<!DOCTYPE html>
 <html>
-<h1>Love Tap</h1>
-<h2>Simple. Love. Gesture.</h2>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Love Tap | Simple.Loving.Gestures</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
 <body>
-<button onclick="func()"> Number of Clicks </button>
-<p id="myText"> 0 </p>
+
+<div class="grid-container">
+      <div id="lovetapimg">
+      <div id="title">
+        <p><h1>Love Tap</h1><p>
+          <p><h2>Simple.Loving.Gestures</h2></p>
+        <p><h3>Woohoo, Click Here to Buy it!</h3></p>
+        </div>
+
+      <button id="buy" onclick="sendMail()"> Buy Now! </button>
+      <!-- <p id="myText"> 0 </p> -->
+      </div>
+
+Distance means nothing now
+<!--   <div id="cover">
+
+
+  </div> -->
+
+
+
+  <!-- <div class="footer"></div> -->
+
+</div>
+
+</body>
+<script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
 
 <script>
-var clicks = 0; 
-function func() { 
-   ++clicks;
-   document.getElementById("myText").innerHTML = clicks;
+(function(){
+      emailjs.init("user_wE0ALYaAWfMmkGSuhGUoK");
+   })();
+function sendMail() {
+var templateParams = {
+    name: 'Samsung Team',
+    notes: 'None'
+};
+emailjs.send('gmail', 'template_pOSiRNqM', templateParams)
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+       console.log('FAILED...', error);
+    });
 }
 </script>
-</body>
 </html>
