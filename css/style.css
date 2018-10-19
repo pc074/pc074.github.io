@@ -64,8 +64,9 @@ input[type=submit]:hover {
     }
 }
 body {
+	height: 100%;
     background-color: #ffffff;
-    margin:0px;
+    margin:0px auto;
     padding: 0px;
 	font-family: 'Poiret One', cursive;
 /*	font-family: 'Nixie One', cursive;*/
@@ -85,9 +86,18 @@ body {
   font-size: 70px;
 }
 
-.text{
-  font-size: 22px;
+/*If the screen size is 601px or more, set the font-size of <div> to 80px */
+@media only screen and (min-width: 601px) {
+ .text {
+   font-size: 20px;
+ }
+}
 
+/* If the screen size is 600px or less, set the font-size of <div> to 30px */
+@media only screen and (max-width: 600px) {
+ .text {
+   font-size: 12px;
+ }
 }
 
   .grid-container {
@@ -105,8 +115,9 @@ body {
 #title {
 	text-align: center;
 	position: relative;
-	left: -300px;
-	top: 100px;
+	left: 5%;
+	width: 50%;
+	top: 10%;
 }
 
 #buy{
