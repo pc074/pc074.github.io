@@ -1,46 +1,71 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Love Tap | Simple.Loving.Gestures</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
+
 <body>
 
 <div class="grid-container">
-      <div id="lovetapimg">
-      <div id="title">
-        <p><h1>Love Tap</h1><p>
-          <p><h2>Simple.Loving.Gestures</h2></p>
-        <p><h3>Woohoo, Click Here to Buy it!</h3></p>
+    <div id="lovetapimg">
+        <div id="title">
+            <h1>Love Tap</h1>
+            <h2>Simple.Loving.Gestures</h2>
+            <h3>Woohoo, Click Here to Buy it!</h3>
         </div>
 
-      <button id="buy" onclick="sendMail()"> Buy Now! </button>
-      <!-- <p id="myText"> 0 </p> -->
-      </div>
+        <button id="buy" class="open-button" onclick="openForm()"> Buy Now!</button>
+    </div>
+
+    <div class="form-popup" id="myForm">
+        <div class="form-container" action="sendMail()">
+            <p>Thanks for expressing your interest in Lovetap! The product is still being developed. Please leave your
+                e-mail to get early access.</p>
+            <input type="text" placeholder="Enter Name" name="psw" id="name" required>
+            <input type="text" placeholder="Enter Email" name="email" id="addr" required>
+            <button onclick="sendMail()" type="submit" class="btn">Login</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </div>
+    </div>
 </div>
 
 </body>
+
+
+<script>
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+</script>
+
 <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
 
 <script>
-(function(){
-      emailjs.init("user_wE0ALYaAWfMmkGSuhGUoK");
-   })();
-function sendMail() {
-    var templateParams = {
-        name: 'Samsung Team',
-        notes: 'None'
-    };
-    emailjs.send('gmail', 'template_pOSiRNqM', templateParams)
-    .then(function(response) {
-       console.log('SUCCESS!', response.status, response.text);
-    }, function(error) {
-       console.log('FAILED...', error);
-    });
-    document.getElementById('buy').disabled = true;
-    alert("Pre-order suceeded!");
-}
+    function sendMail() {
+        var templateParams = {
+            name: document.getElementById("name").value,
+            addr: document.getElementById("addr").value
+        };
+        emailjs.init("user_wE0ALYaAWfMmkGSuhGUoK");
+        emailjs.send('gmail', 'template_pOSiRNqM', templateParams)
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+            }, function (error) {
+                console.log('FAILED...', error);
+            });
+        document.getElementById('buy').disabled = true;
+        alert("Pre-order suceeded!");
+        window.location.href = 'thankyou.html';
+    }
+
 </script>
 </html>
+
