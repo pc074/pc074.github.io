@@ -57,7 +57,6 @@
 		console.log("name = ", templateParams.name, "addr = ", templateParams.addr);
 		if (templateParams.name.length === 0 || templateParams.addr.length === 0){
 			alert("Please input your name and email address.");
-			return;
 		}
         emailjs.init("user_wE0ALYaAWfMmkGSuhGUoK");
         emailjs.send('gmail', 'template_pOSiRNqM', templateParams)
