@@ -54,6 +54,11 @@
             name: document.getElementById("name").value,
             addr: document.getElementById("addr").value
         };
+		console.log("name = ", name, "addr = ", addr);
+		if (name.length === 0 || addr.length === 0){
+			alert("Please input your name and email address.");
+			return;
+		}
         emailjs.init("user_wE0ALYaAWfMmkGSuhGUoK");
         emailjs.send('gmail', 'template_pOSiRNqM', templateParams)
             .then(function (response) {
@@ -62,7 +67,6 @@
                 console.log('FAILED...', error);
             });
         document.getElementById('buy').disabled = true;
-        alert("Pre-order suceeded!");
         window.location.href = 'thankyou.html';
     }
 
