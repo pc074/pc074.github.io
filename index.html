@@ -54,8 +54,8 @@
             name: document.getElementById("name").value,
             addr: document.getElementById("addr").value
         };
-		console.log("name = ", name, "addr = ", addr);
-		if (name.length === 0 || addr.length === 0){
+		console.log("name = ", templateParams.name, "addr = ", templateParams.addr);
+		if (templateParams.name.length === 0 || templateParams.addr.length === 0){
 			alert("Please input your name and email address.");
 			return;
 		}
