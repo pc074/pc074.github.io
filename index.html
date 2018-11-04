@@ -87,13 +87,8 @@
 			alert("Please input your email address.");
 		}
         emailjs.init("user_wE0ALYaAWfMmkGSuhGUoK");
-        emailjs.send('gmail', 'template_pOSiRNqM', templateParams)
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-            }, function (error) {
-                console.log('FAILED...', error);
-            });
-        window.location.href = 'thankyou.html';
+        emailjs.send('gmail', 'template_pOSiRNqM', templateParams);
+	console.log("email sent!");
     }
  
 </script>
