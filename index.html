@@ -1,85 +1,40 @@
-<!DOCTYPE HTML>
-<!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Love Tap</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Love Tap | Simple.Loving.Gestures</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen and (min-device-width: 400px)">
+</head>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+<body>
 
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="icon fa-diamond"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>LOVE TAP</h1>
-								<h2>Simple.Loving.Gestures</h2>
-								<p>When our loved ones are not near, it’s hard to stay connected. We’re either too busy, or circumstances have placed us afar. This is why we created lovetap, a simple and unobtrusive armband that lets them know you’re thinking about them.</p>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="#contact">BUY</a></li>
-							</ul>
-						</nav>
-					</header>
+<div class="grid-container">
+    <div id="lovetapimg">
+        <div id="title">
+            <h1>Love Tap</h1>
+            <h2>Simple.Loving.Gestures</h2>
+            <p class=“text”>When our loved ones are not near, it’s hard to stay connected. <br>We’re either too busy, or circumstances have placed us afar. <br>This is why we created lovetap, a simple and unobtrusive <br>armband that lets them know you’re thinking about them.</p>
+        </div>
+        <button id="buy" class="open-button" onclick="openForm()"> Buy Now!</button>
+    </div>
 
-				<!-- Main -->
-					<div id="main">
-						<!-- Contact -->
-							<article id="contact">
-								<h3 class="major">Contact</h3>
-								<p>Thanks for expressing your interest in Lovetap! The product is still being developed. Please leave your e-mail to get early access.</p>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" onclick="sendMail()" value="submit"/></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-							</article>
+    <div class="form-popup" id="myForm">
+        <div class="form-container" action="sendMail()">
+            <p>Thanks for expressing your interest in Lovetap! The product is still being developed. Please leave your
+                e-mail to get early access.</p>
+            <input type="text" placeholder="Enter Name" name="psw" id="name" required>
+            <input type="text" placeholder="Enter Email" name="email" id="addr" required>
+            <button onclick="sendMail()" type="submit" class="btn11">Submit</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </div>
+    </div>
+</div>
 
-					</div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright">&copy; PC074 Team Samsung.</p>
-					</footer>
+</body>
 
-			</div>
-
-		<!-- BG -->
-			<div id="bg"></div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
-</html>
+<script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
 
 <script>
     function openForm() {
@@ -95,8 +50,8 @@
     function sendMail() {
         var templateParams = {
             name: document.getElementById("name").value,
-            addr: document.getElementById("email").value
-		};
+            addr: document.getElementById("addr").value
+        };
 		console.log("name = ", templateParams.name, "addr = ", templateParams.addr);
 		if (templateParams.name.length === 0 || templateParams.addr.length === 0){
 			alert("Please input your name and email address.");
@@ -113,3 +68,5 @@
     }
  
 </script>
+</html>
+
