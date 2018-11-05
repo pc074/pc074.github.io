@@ -4,6 +4,12 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_wE0ALYaAWfMmkGSuhGUoK");
+   })();
+</script>
 <html>
 	<head>
 		<title>Love Tap</title>
@@ -73,7 +79,6 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script src="assets/js/email.min.js"></script>
 	</body>
 </html>
 
@@ -87,7 +92,6 @@ document.querySelector("#btn1").addEventListener("click", function sendMail(even
 		if (templateParams.addr.length === 0){
 			alert("Please input your email address.");
 		}
-        emailjs.init("user_wE0ALYaAWfMmkGSuhGUoK");
         emailjs.send('gmail', 'template_pOSiRNqM', templateParams);
         window.location.href = 'thankyou.html';
 
