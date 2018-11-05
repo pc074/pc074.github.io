@@ -4,12 +4,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init("user_wE0ALYaAWfMmkGSuhGUoK");
-   })();
-</script>
+
 <html>
 	<head>
 		<title>Love Tap</title>
@@ -79,9 +74,17 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
 	</body>
 </html>
-
+	
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_wE0ALYaAWfMmkGSuhGUoK");
+      console.log('Init succeeded');
+   })();
+</script>
+	
 <script>
 document.querySelector("#btn1").addEventListener("click", function sendMail(event) {
         event.preventDefault();
@@ -92,10 +95,13 @@ document.querySelector("#btn1").addEventListener("click", function sendMail(even
 		if (templateParams.addr.length === 0){
 			alert("Please input your email address.");
 		}
-        emailjs.send('gmail', 'template_pOSiRNqM', templateParams);
+	emailjs.send('gmail', 'template_pOSiRNqM', templateParams)
+    		.then(function(response) {
+       			console.log('SUCCESS!', response.status, response.text);
+    		}, function(error) {
+       			console.log('FAILED...', error);
+    		});
         window.location.href = 'thankyou.html';
 
     }, false);
-    
- 
 </script>
