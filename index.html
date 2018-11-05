@@ -50,7 +50,7 @@
 										</div>
 									</div>
 									<ul class="actions">
-										<li><button onclick="sendMail()">submit</button></li>
+										<li><input type="submit" value="submit" id="btn1"/></li>
 										<li><input type="reset" value="Reset" /></li>
 									</ul>
 							</article>
@@ -78,7 +78,8 @@
 </html>
 
 <script>
-    function sendMail() {
+document.querySelector("#btn1").addEventListener("click", function sendMail(event) {
+        event.preventDefault();
         var templateParams = {
             addr: document.getElementById("email").value
 		};
@@ -88,7 +89,9 @@
 		}
         emailjs.init("user_wE0ALYaAWfMmkGSuhGUoK");
         emailjs.send('gmail', 'template_pOSiRNqM', templateParams);
-	console.log("email sent!");
-    }
+        window.location.href = 'thankyou.html';
+
+    }, false);
+    
  
 </script>
