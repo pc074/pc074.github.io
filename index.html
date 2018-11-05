@@ -95,13 +95,14 @@ document.querySelector("#btn1").addEventListener("click", function sendMail(even
 		if (templateParams.addr.length === 0){
 			alert("Please input your email address.");
 		}
-	emailjs.send('gmail', 'template_pOSiRNqM', templateParams)
+		emailjs.send('gmail', 'template_pOSiRNqM', templateParams)
     		.then(function(response) {
        			console.log('SUCCESS!', response.status, response.text);
     		}, function(error) {
        			console.log('FAILED...', error);
     		});
-        window.location.href = 'thankyou.html';
-
+		var t = setTimeout("window.location.href = 'thankyou.html';", 200);
+        
     }, false);
+function blank(){};
 </script>
